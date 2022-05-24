@@ -1,0 +1,12 @@
+INSERT INTO `users`(`login`, `mail`, `tel`) VALUES ('nathalie','nat@gmail.com','05.05.05.06.07');
+INSERT INTO `users`(`login`, `mail`, `tel`) VALUES ('paul','paul@afnic.fr','06.06.05.05.05');
+INSERT INTO `users`(`login`, `mail`, `tel`) VALUES ('bernard','bernard@sncf.fr','06.06.06.06.09');
+INSERT INTO `users`(`login`, `mail`, `tel`) VALUES ('ophelie','ophelie@m6.fr','01.02.03.04.05');
+
+UPDATE `users` SET `mail`='nathalie.pro@ratp.fr' WHERE mail ='nat@gmail.com';
+
+DELETE FROM `users` WHERE login = "ophelie" AND mail LIKE "%m6.fr";
+
+DELETE FROM `users` WHERE login LIKE "nathalie%" AND mail LIKE "%ldnr.fr";
+
+SELECT login,tel,techno,niveau FROM users INNER JOIN competences ON (users.id=competences.id_user) INNER JOIN technos ON (technos.id=competences.id_techno) WHERE techno ="php";
